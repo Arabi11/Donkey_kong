@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        
     }
 
     private void Update()
