@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour
         }
 
         direction.x = Input.GetAxis("Horizontal") * moveSpeed;
-        //direction.y = Input.GetAxis("Vertical") * moveSpeed;
+        direction.y = Mathf.Max(direction.y,-1f);
 
         if (direction.x > 0f)
         {
