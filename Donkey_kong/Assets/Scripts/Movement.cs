@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     private new Rigidbody2D rigidbody;
     private Vector2 direction;
     public float moveSpeed = 1f;
+    public float jumpStrength =1f;
 
     private void Awake()
     {
@@ -14,6 +15,13 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetButtonDown("Jump")){
+           direction = Vector2.up * jumpStrength;
+        }
+        else{
+            direction += Physics2D.gravity * Time.deltaTime;
+        }
+
         direction.x = Input.GetAxis("Horizontal") * moveSpeed;
         //direction.y = Input.GetAxis("Vertical") * moveSpeed;
 

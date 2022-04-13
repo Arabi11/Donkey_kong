@@ -193,3 +193,4 @@ Received Import Request.
 Start importing Assets/Sprites/Square.png using Guid(01fbf504120ab2e49b1a6cff4723a548) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3fa2406aa32633a49cf195d9887e91e4') in 0.013378 seconds 
   Import took 0.016518 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
