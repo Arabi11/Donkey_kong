@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Barrel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   private new Rigidbody2D rigidbody;
+   [SerializeField] private float speed = Random.Range(0.5f, 1f);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   private void Awake(){
+       rigidbody =GetComponent<Rigidbody2D>();
+   }
+
+   private void OnCollisionEnter2D(Collision2D collision){
+      rigidbody.AddForce(collision.transform.right*speed, ForceMode2D.Impulse );
+       
+   }
 }

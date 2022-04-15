@@ -54,8 +54,7 @@ public class Movement : MonoBehaviour
     private void CheckCollision()
     {
         grounded = false;
-        climbing = false;
-
+        
         Vector3 size = collider.bounds.size;
         size.y += 0.1f;
         size.x /= 2f;
@@ -85,7 +84,7 @@ public class Movement : MonoBehaviour
          if (grounded && Input.GetButtonDown("Jump")) {
             direction = Vector2.up * jumpStrength;
         } else {
-            direction += Physics2D.gravity * Time.deltaTime*2;
+            direction += Physics2D.gravity * Time.deltaTime*3;
         }
 
         direction.x = Input.GetAxis("Horizontal") * moveSpeed;
