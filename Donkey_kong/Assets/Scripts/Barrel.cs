@@ -5,6 +5,7 @@ using UnityEngine;
 public class Barrel : MonoBehaviour
 {
    private new Rigidbody2D rigidbody;
+  [SerializeField] private bool Crossed =false;
    [SerializeField] private float speed = Random.Range(0.5f, 1f);
 
    private void Awake(){
@@ -15,4 +16,17 @@ public class Barrel : MonoBehaviour
       rigidbody.AddForce(collision.transform.right*speed, ForceMode2D.Impulse );
        
    }
+
+   public void HasCrossed (){
+      Crossed = true;
+   }
+   
+   public bool getCrossed (){
+      return Crossed;
+   }
+
+   
+   
+
+   
 }

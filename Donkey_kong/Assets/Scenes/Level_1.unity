@@ -559,7 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c09d5a972e1f9d74dae059469a39d1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prrefab: {fileID: 3571564967467761568, guid: 53ba722d63ccc1149b9589815f44f2a1, type: 3}
+  prrefab: {fileID: 5386471562597102693, guid: 53ba722d63ccc1149b9589815f44f2a1, type: 3}
   minTime: 1
   maxTime: 4
 --- !u!4 &1647303628

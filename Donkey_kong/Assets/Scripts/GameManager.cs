@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour
        score += 10;
    }
 
+    public void JumpPoint(){
+       score += 50;
+   }
+
     public void LevelFailed()
     {
         lives--;
