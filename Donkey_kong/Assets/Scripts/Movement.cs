@@ -79,6 +79,8 @@ public class Movement : MonoBehaviour
         }
     }
 
+    
+
     private void SetDirection()
     {
         
@@ -130,6 +132,12 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             FindObjectOfType<GameManager>().LevelFailed();
+            
+        }
+        else if (collision.gameObject.CompareTag("Coin"))
+        {
+            FindObjectOfType<GameManager>().AddPoint();
+             Destroy(collision.gameObject);
             
         }
     }

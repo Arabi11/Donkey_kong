@@ -40,7 +40,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(level);
     }
 
-   
+   public void AddPoint(){
+       score += 10;
+   }
 
     public void LevelFailed()
     {

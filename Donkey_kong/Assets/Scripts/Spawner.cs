@@ -5,8 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject prrefab;
-    [SerializeField] private float minTime =2f;
-    [SerializeField] private float maxTime = 4f ;
+    [SerializeField] private float minTime =50f;
+    [SerializeField] private float maxTime = 400f ;
 
 
     private void Start(){
