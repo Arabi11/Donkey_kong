@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 404081376772979630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.67757213, y: -0.58741844, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -134,10 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2219a5c9e2a38d84db7ef89927f95d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  jumpStrength: 4
   runSprites:
   - {fileID: 21300000, guid: 120bc13e99338c34e98a602ba8be399d, type: 3}
   - {fileID: 21300000, guid: 6ed209537b4c3864fad2ae9dbebfeba0, type: 3}
   - {fileID: 21300000, guid: 120bc13e99338c34e98a602ba8be399d, type: 3}
   - {fileID: 21300000, guid: 9b3389f161787f647bb8f449547ee668, type: 3}
+  moveSpeed: 3
+  climbSprite: {fileID: 0}
+  jumpStrength: 4

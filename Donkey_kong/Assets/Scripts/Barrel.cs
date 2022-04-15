@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Barrel : MonoBehaviour
 {
-   private new Rigidbody2D rigidbody;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
-   private void Awake(){
-       rigidbody =GetComponent<Rigidbody2D>();
-   }
-
-   private void OnCollisionEnter2D(Collision2D collision){
-      if(collision.gameObject.layer == LayerMask.NameToLayer("Barrel"))
-            Destroy(collision.gameObject);
-       
-   }
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

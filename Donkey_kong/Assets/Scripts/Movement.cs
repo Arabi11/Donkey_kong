@@ -5,9 +5,9 @@ public class Movement : MonoBehaviour
     
 
     [SerializeField] private Sprite[] runSprites;
-    [SerializeField] private  float moveSpeed = 3f;
+    [SerializeField] private  float moveSpeed = 6f;
 
-    [SerializeField] private Sprite climbSprite;
+    
 
     [SerializeField] private float jumpStrength = 4f;
     
@@ -81,9 +81,8 @@ public class Movement : MonoBehaviour
 
     private void SetDirection()
     {
-        if (climbing) {
-            direction.y = Input.GetAxis("Vertical") * moveSpeed;
-        } else if (grounded && Input.GetButtonDown("Jump")) {
+        
+         if (grounded && Input.GetButtonDown("Jump")) {
             direction = Vector2.up * jumpStrength;
         } else {
             direction += Physics2D.gravity * Time.deltaTime*2;
