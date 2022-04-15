@@ -274,6 +274,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mario
       objectReference: {fileID: 0}
+    - target: {fileID: 1460878260668868123, guid: 3b8fb55e997bd49429fa4a2fcba813ea, type: 3}
+      propertyPath: jumpStrength
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2308532103555491859, guid: 3b8fb55e997bd49429fa4a2fcba813ea, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -324,6 +328,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b8fb55e997bd49429fa4a2fcba813ea, type: 3}
+--- !u!1 &1647303626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1647303628}
+  - component: {fileID: 1647303627}
+  m_Layer: 0
+  m_Name: Barrel Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1647303627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647303626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09d5a972e1f9d74dae059469a39d1f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prrefab: {fileID: 902071057298038648, guid: 53ba722d63ccc1149b9589815f44f2a1, type: 3}
+  minTime: 2
+  maxTime: 4
+--- !u!4 &1647303628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647303626}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.35, y: 2.7564826, z: -3.8918486}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2041097526
 PrefabInstance:
   m_ObjectHideFlags: 0
