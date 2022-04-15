@@ -15,5 +15,6 @@ public class Spawner : MonoBehaviour
     private void Spawn(){
         Instantiate(prrefab, transform.position, Quaternion.identity);
         Invoke(nameof(Spawn), Random.Range(minTime, maxTime));
+        
     }
 }

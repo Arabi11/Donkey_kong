@@ -145,14 +145,18 @@ public class Movement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider){
         
         if(collider.gameObject.CompareTag("Obstacle")&& !FindObjectOfType<Barrel>().getCrossed()){
-            
-        FindObjectOfType<GameManager>().AddPoint();
-        //FindObjectOfType<Barrel>().HasCrossed();
+            ScoreManager.instance.AddPoint();
+        
+        
 
         if(!grounded){
+            ScoreManager.instance.AddJumpPoint();
             FindObjectOfType<GameManager>().JumpPoint();
+            
         }
              
         }
+       // FindObjectOfType<Barrel>().HasntCrossed();
+
     }
 }
