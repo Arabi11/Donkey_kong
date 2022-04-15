@@ -8,6 +8,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private Sprite[] runSprites;
     [SerializeField] private  float moveSpeed = 6f;
 
+
+    private  bool isTriggered = false;
     
 
     [SerializeField] private float jumpStrength = 4f;
@@ -136,27 +138,31 @@ public class Movement : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Coin"))
         {
-            FindObjectOfType<GameManager>().AddPoint();
+           ScoreManager.instance.AddPoint();
              Destroy(collision.gameObject);
             
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collider){
-        
-        if(collider.gameObject.CompareTag("Obstacle")&& !FindObjectOfType<Barrel>().getCrossed()){
+        if(isTriggered == false){
+        if(collider.gameObject.CompareTag("Obstacle")){
             ScoreManager.instance.AddPoint();
         
         
 
         if(!grounded){
             ScoreManager.instance.AddJumpPoint();
-            FindObjectOfType<GameManager>().JumpPoint();
+            
             
         }
-             
+             isTriggered =true;
         }
-       // FindObjectOfType<Barrel>().HasntCrossed();
-
+       
+    }
+     
+}
+    private void OnTriggerExit2D( Collider2D collider){
+        isTriggered = false;
     }
 }

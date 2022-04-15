@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     private int level;
    
-    private int score;
+    //private int score;
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private void NewGame()
     {
         
-        score = 0;
+        //score = 0;
 
         LoadLevel(1);
     }
@@ -40,13 +40,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(level);
     }
 
-   public void AddPoint(){
-       score += 10;
-   }
-
-    public void JumpPoint(){
-       score += 50;
-   }
 
     public void LevelFailed()
     {
