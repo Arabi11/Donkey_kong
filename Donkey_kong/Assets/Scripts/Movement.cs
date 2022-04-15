@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class Movement : MonoBehaviour
     private Vector2 direction;
 
     private bool grounded;
-    private bool climbing;
+  
 
     
     
@@ -121,6 +122,15 @@ public class Movement : MonoBehaviour
             }
 
             spriteRenderer.sprite = runSprites[spriteIndex];
+        }
+    }
+
+      private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            FindObjectOfType<GameManager>().LevelFailed();
+            
         }
     }
 }
