@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     private void NewGame()
     {
         
-       
+       PlayerPrefs.DeleteKey("score");
         LoadLevel();
     }
 
