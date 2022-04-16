@@ -27,7 +27,7 @@ public class Movement : MonoBehaviour
 
     private bool grounded;
 
-    private bool ontop;
+  
   
 
     
@@ -62,7 +62,7 @@ public class Movement : MonoBehaviour
     private void CheckCollision()
     {
         grounded = false;
-         ontop = false;
+         
         
         Vector3 size = collider.bounds.size;
         size.y += 0.1f;
@@ -164,7 +164,5 @@ private void OnTriggerEnter2D(Collider2D collider){
      }
 }
 
-    public bool checkTheToe(){
-        return ontop;
-    }
+   
 }
