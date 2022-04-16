@@ -152,21 +152,21 @@ private void OnTriggerExit2D(Collider2D collider){
         if(collider.GetType() == typeof(CapsuleCollider2D)){
 
           
-            ScoreManager.instance.AddJumpPoint();
+            ScoreManager.instance.AddPoint(50);
             
             
         }
-        else {
-           ScoreManager.instance.AddPoint();
+        else if( direction.x < collider.transform.position.x) {
+           ScoreManager.instance.AddPoint(10);
             
         }
-<<<<<<< HEAD
+
         //jump backwards
         else if(direction.y > collider.transform.position.y && direction.x < collider.transform.position.x){
              ScoreManager.instance.AddPoint(150);
         }
-=======
->>>>>>> parent of ba75db9 (added back jump)
+
+
         
      }
 }
