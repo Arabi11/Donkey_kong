@@ -3,13 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
-    
+    public static Movement instance;
 
     [SerializeField] private Sprite[] runSprites;
     [SerializeField] private  float moveSpeed = 6f;
 
 
-    private  bool isTriggered = false;
+    
     
 
     [SerializeField] private float jumpStrength = 4f;
@@ -26,6 +26,8 @@ public class Movement : MonoBehaviour
     private Vector2 direction;
 
     private bool grounded;
+
+    private bool ontop;
   
 
     
@@ -36,6 +38,9 @@ public class Movement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
+        
+        instance = this;
+    
     }
 
     private void OnEnable()
@@ -57,6 +62,7 @@ public class Movement : MonoBehaviour
     private void CheckCollision()
     {
         grounded = false;
+         ontop = false;
         
         Vector3 size = collider.bounds.size;
         size.y += 0.1f;
@@ -72,10 +78,12 @@ public class Movement : MonoBehaviour
             {
                 // Only set as grounded if the platform is below the player
                 grounded = hit.transform.position.y < (transform.position.y - 0.5f);
+               
 
                 // Turn off collision on platforms the player is not grounded to
                 Physics2D.IgnoreCollision(overlaps[i], collider, !grounded);
             }
+           
            
            
         }
@@ -136,33 +144,27 @@ public class Movement : MonoBehaviour
             FindObjectOfType<GameManager>().LevelFailed();
             
         }
-        else if (collision.gameObject.CompareTag("Coin"))
-        {
-           ScoreManager.instance.AddPoint();
-             Destroy(collision.gameObject);
-            
-        }
+        
     }
 
-    private void OnTriggerEnter2D(Collider2D collider){
-        if(isTriggered == false){
-        if(collider.gameObject.CompareTag("Obstacle")){
-            ScoreManager.instance.AddPoint();
-        
-        
+private void OnTriggerEnter2D(Collider2D collider){
+     if(collider.gameObject.CompareTag("Obstacle")){
+        if(collider.GetType() == typeof(CapsuleCollider2D)){
 
-        if(!grounded){
+          
             ScoreManager.instance.AddJumpPoint();
             
             
         }
-             isTriggered =true;
+        else {
+           ScoreManager.instance.AddPoint();
+            
         }
-       
-    }
-     
+        
+     }
 }
-    private void OnTriggerExit2D( Collider2D collider){
-        isTriggered = false;
+
+    public bool checkTheToe(){
+        return ontop;
     }
 }

@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
-        NewGame();
+        SceneManager.LoadScene(1);
     }
 
     private void NewGame()

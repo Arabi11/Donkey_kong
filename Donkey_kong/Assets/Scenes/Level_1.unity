@@ -425,13 +425,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mario
       objectReference: {fileID: 0}
+    - target: {fileID: 404081376772979630, guid: 3b8fb55e997bd49429fa4a2fcba813ea, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1460878260668868123, guid: 3b8fb55e997bd49429fa4a2fcba813ea, type: 3}
       propertyPath: moveSpeed
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1460878260668868123, guid: 3b8fb55e997bd49429fa4a2fcba813ea, type: 3}
       propertyPath: jumpStrength
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2308532103555491859, guid: 3b8fb55e997bd49429fa4a2fcba813ea, type: 3}
       propertyPath: m_FlipX
@@ -551,7 +555,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975586180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.18, y: -2.65, z: -3.8918486}
+  m_LocalPosition: {x: 8.51, y: -2.65, z: -3.8918486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -665,8 +669,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prrefab: {fileID: 5386471562597102693, guid: 53ba722d63ccc1149b9589815f44f2a1, type: 3}
-  minTime: 1
-  maxTime: 4
+  minTime: 6
+  maxTime: 9
 --- !u!4 &1647303628
 Transform:
   m_ObjectHideFlags: 0
@@ -675,7 +679,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647303626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.5699997, y: 1.3264825, z: -3.8918486}
+  m_LocalPosition: {x: 7.14, y: 1.3264825, z: -3.8918486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
