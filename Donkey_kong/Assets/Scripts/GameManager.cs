@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     private int level;
    
-    //private int score;
+    
 
     private void Start()
     {
@@ -16,14 +16,13 @@ public class GameManager : MonoBehaviour
     private void NewGame()
     {
         
-        //score = 0;
-
-        LoadLevel(1);
+        
+        LoadLevel();
     }
 
-    private void LoadLevel(int index)
+    private void LoadLevel()
     {
-        level = index;
+        
 
         Camera camera = Camera.main;
 
@@ -37,14 +36,14 @@ public class GameManager : MonoBehaviour
 
     private void LoadScene()
     {
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene(2);
     }
 
 
     public void LevelFailed()
     {
        
-            LoadLevel(level);
+            LoadLevel();
         
     }
 
