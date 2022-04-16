@@ -435,7 +435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1460878260668868123, guid: 3b8fb55e997bd49429fa4a2fcba813ea, type: 3}
       propertyPath: jumpStrength
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2308532103555491859, guid: 3b8fb55e997bd49429fa4a2fcba813ea, type: 3}
       propertyPath: m_FlipX
@@ -750,8 +750,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prrefab: {fileID: 5386471562597102693, guid: 53ba722d63ccc1149b9589815f44f2a1, type: 3}
-  minTime: 6
-  maxTime: 9
+  minTime: 3
+  maxTime: 5
 --- !u!4 &1647303628
 Transform:
   m_ObjectHideFlags: 0
