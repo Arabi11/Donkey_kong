@@ -149,23 +149,24 @@ public class Movement : MonoBehaviour
 
 private void OnTriggerExit2D(Collider2D collider){
      if(collider.gameObject.CompareTag("Obstacle")){
-         //jump over foward
-        if(direction.y > collider.transform.position.y && direction.x > collider.transform.position.x){
+        if(collider.GetType() == typeof(CapsuleCollider2D)){
 
           
-            ScoreManager.instance.AddPoint(50);
+            ScoreManager.instance.AddJumpPoint();
             
             
         }
-        //pass under
-        else if(direction.x > collider.transform.position.x) {
-           ScoreManager.instance.AddPoint(10);
+        else {
+           ScoreManager.instance.AddPoint();
             
         }
+<<<<<<< HEAD
         //jump backwards
         else if(direction.y > collider.transform.position.y && direction.x < collider.transform.position.x){
              ScoreManager.instance.AddPoint(150);
         }
+=======
+>>>>>>> parent of ba75db9 (added back jump)
         
      }
 }
