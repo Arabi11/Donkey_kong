@@ -17,14 +17,14 @@ public class GameManager : MonoBehaviour
     private void NewGame()
     {
         
-       PlayerPrefs.DeleteKey("score");
+        PlayerPrefs.DeleteKey("score");
         LoadLevel();
     }
 
     private void LoadLevel()
     {
         
-
+       
         Camera camera = Camera.main;
 
         

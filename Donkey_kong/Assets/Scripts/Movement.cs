@@ -152,12 +152,12 @@ private void OnTriggerEnter2D(Collider2D collider){
         if(collider.GetType() == typeof(CapsuleCollider2D)){
 
           
-            ScoreManager.instance.AddJumpPoint();
+            ScoreManager.instance.AddPoint(50);
             
             
         }
         else {
-           ScoreManager.instance.AddPoint();
+           ScoreManager.instance.AddPoint(10);
             
         }
         
