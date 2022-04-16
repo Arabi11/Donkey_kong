@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private int level;
+    private int lives=3;
    
     
 
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
     private void NewGame()
     {
         
-        
+       
         LoadLevel();
     }
 
@@ -42,8 +43,20 @@ public class GameManager : MonoBehaviour
 
     public void LevelFailed()
     {
-       
+        lives--;
+
+        if (lives <= 0) {
+            NewGame();
+        } else {
             LoadLevel();
+        }
+        
+    }
+
+    public void AddLives()
+    {
+       
+            lives ++;
         
     }
 

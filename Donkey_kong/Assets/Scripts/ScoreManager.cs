@@ -11,32 +11,40 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] private  Text highscoreText;
 
-    int score = 0;
+    int score =0;
     int highscore = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {   
-        //PlayerPrefs.DeleteAll();
+       PlayerPrefs.DeleteKey("score");
         highscore =PlayerPrefs.GetInt("highscore", 0);
-        scoreText.text = score.ToString()+" POINTS";
+
+        score = PlayerPrefs.GetInt("score", 0);
+        scoreText.text = " POINTS: " + score.ToString();
+
         highscoreText.text = "HIGHSCORE:"+highscore.ToString();
     }
 
     public void AddPoint(){
-        score += 10;
-        scoreText.text = score.ToString()+"POINTS";
+
+        score+=10;
+        PlayerPrefs.SetInt("score", score);
+       scoreText.text = " POINTS: " + score.ToString();
+        
         if(highscore< score){
-        PlayerPrefs.SetInt("highscore", score);
+            PlayerPrefs.SetInt("highscore", score);
+            highscoreText.text = "HIGHSCORE:"+score.ToString();
         }
     }
 
      public void AddJumpPoint(){
         score += 50;
-        scoreText.text = score.ToString()+"POINTS";
+        scoreText.text = " POINTS: " + score.ToString();
         if(highscore< score){
-        PlayerPrefs.SetInt("highscore", score);
+            PlayerPrefs.SetInt("highscore", score);
+            highscoreText.text = "HIGHSCORE:"+score.ToString();
         }
     }
 
