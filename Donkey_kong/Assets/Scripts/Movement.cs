@@ -109,9 +109,9 @@ public class Movement : MonoBehaviour
 
         if (direction.x > 0f) {
             transform.eulerAngles = Vector3.zero;
-        } /**else if (direction.x < 0f) {
+        } else if (direction.x < 0f) {
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
-        }**/
+        }
     }
 
     private void FixedUpdate()
@@ -147,26 +147,24 @@ public class Movement : MonoBehaviour
         
     }
 
-private void OnTriggerExit2D(Collider2D collider){
+private void OnTriggerEnter2D(Collider2D collider){
      if(collider.gameObject.CompareTag("Obstacle")){
-        if(collider.GetType() == typeof(CapsuleCollider2D)){
+         //jump over foward
+        if(direction.y > collider.transform.position.y && direction.x > collider.transform.position.x){
 
           
             ScoreManager.instance.AddPoint(50);
             
             
         }
-        else if( direction.x < collider.transform.position.x) {
+        //pass under
+        else if(direction.x > collider.transform.position.x) {
            ScoreManager.instance.AddPoint(10);
             
         }
-
-        //jump backwards
         else if(direction.y > collider.transform.position.y && direction.x < collider.transform.position.x){
              ScoreManager.instance.AddPoint(150);
         }
-
-
         
      }
 }

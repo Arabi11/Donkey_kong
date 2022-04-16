@@ -5,8 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject prrefab;
-    [SerializeField] private float minTime;
-    [SerializeField] private float maxTime;
+    [SerializeField] private float minTime =10f;
+    [SerializeField] private float maxTime = 400f ;
 
 
     private void Start(){
@@ -14,10 +14,7 @@ public class Spawner : MonoBehaviour
     }
     private void Spawn(){
         Instantiate(prrefab, transform.position, Quaternion.identity);
-        Invoke(nameof(Spawn), Random.Range(minTime, maxTime));
-
-        
-       
+        Invoke(nameof(Spawn), Random.Range(minTime, maxTime)+(Time.deltaTime/1000f));
         
     }
 }

@@ -431,11 +431,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1460878260668868123, guid: 3b8fb55e997bd49429fa4a2fcba813ea, type: 3}
       propertyPath: moveSpeed
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1460878260668868123, guid: 3b8fb55e997bd49429fa4a2fcba813ea, type: 3}
       propertyPath: jumpStrength
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2308532103555491859, guid: 3b8fb55e997bd49429fa4a2fcba813ea, type: 3}
       propertyPath: m_FlipX
@@ -749,9 +749,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c09d5a972e1f9d74dae059469a39d1f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prrefab: {fileID: 4680419910763878326, guid: df1413c24ef05ce4f9c5f1e614e51ca8, type: 3}
-  minTime: 3
-  maxTime: 5
+  prrefab: {fileID: 5386471562597102693, guid: 53ba722d63ccc1149b9589815f44f2a1, type: 3}
+  minTime: 6
+  maxTime: 9
 --- !u!4 &1647303628
 Transform:
   m_ObjectHideFlags: 0

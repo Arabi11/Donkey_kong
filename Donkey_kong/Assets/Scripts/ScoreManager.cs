@@ -27,20 +27,12 @@ public class ScoreManager : MonoBehaviour
         highscoreText.text = "HIGHSCORE:"+highscore.ToString();
     }
 
-    public void AddPoint(){
+   
+    
 
-        score+=10;
-        PlayerPrefs.SetInt("score", score);
-       scoreText.text = " POINTS: " + score.ToString();
-        
-        if(highscore< score){
-            PlayerPrefs.SetInt("highscore", score);
-            highscoreText.text = "HIGHSCORE:"+score.ToString();
-        }
-    }
-
-     public void AddJumpPoint(){
-        score += 50;
+    
+     public void AddPoint(int x){
+        score += x;
         scoreText.text = " POINTS: " + score.ToString();
         if(highscore< score){
             PlayerPrefs.SetInt("highscore", score);

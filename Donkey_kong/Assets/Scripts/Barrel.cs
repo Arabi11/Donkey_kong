@@ -6,7 +6,7 @@ public class Barrel : MonoBehaviour
 {
    private new Rigidbody2D rigidbody;
    private bool collided = false;
-   private Vector2 direction;
+   
 
   
 
@@ -18,11 +18,6 @@ public class Barrel : MonoBehaviour
       
    }
 
-   private void Start(){
-      direction.x = Random.Range(-100f,0);
-      rigidbody.AddForce(direction);
-   }
-
    private void OnCollisionEnter2D(Collision2D collision){
       if(!collided){
          rigidbody.AddForce(collision.transform.right*speed, ForceMode2D.Impulse );
@@ -32,6 +27,26 @@ public class Barrel : MonoBehaviour
       Physics2D.IgnoreLayerCollision(7,7);
        
    }
+
+/**
+  private void OnTriggerEnter2D(Collider2D collider){
+     if(collider.gameObject.CompareTag("Player")){
+        if(!Movement.instance.checkTheToe()&&collider.GetType() == typeof(CapsuleCollider2D)){
+
+          
+            ScoreManager.instance.AddJumpPoint();
+            
+            
+        }
+        else {
+           ScoreManager.instance.AddPoint();
+            
+        }
+        
+     }
+     
+             
+        }**/
 
         
             
