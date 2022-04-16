@@ -149,16 +149,21 @@ public class Movement : MonoBehaviour
 
 private void OnTriggerEnter2D(Collider2D collider){
      if(collider.gameObject.CompareTag("Obstacle")){
-        if(collider.GetType() == typeof(CapsuleCollider2D)){
+         //jump over foward
+        if(direction.y > collider.transform.position.y && direction.x > collider.transform.position.x){
 
           
-            ScoreManager.instance.AddJumpPoint();
+            ScoreManager.instance.AddPoint(50);
             
             
         }
-        else {
-           ScoreManager.instance.AddPoint();
+        //pass under
+        else if(direction.x > collider.transform.position.x) {
+           ScoreManager.instance.AddPoint(10);
             
+        }
+        else if(direction.y > collider.transform.position.y && direction.x < collider.transform.position.x){
+             ScoreManager.instance.AddPoint(150);
         }
         
      }
