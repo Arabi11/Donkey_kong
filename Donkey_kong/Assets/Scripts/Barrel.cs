@@ -27,35 +27,8 @@ public class Barrel : MonoBehaviour
       
       Physics2D.IgnoreLayerCollision(7,7);
        
-   }
-
-/**
-  private void OnTriggerEnter2D(Collider2D collider){
-     if(collider.gameObject.CompareTag("Player")){
-        if(!Movement.instance.checkTheToe()&&collider.GetType() == typeof(CapsuleCollider2D)){
-
-          
-            ScoreManager.instance.AddJumpPoint();
-            
-            
-        }
-        else {
-           ScoreManager.instance.AddPoint();
-            
-        }
-        
-     }
-     
-             
-        }**/
-
-        
-            
-            
-        
-
-        
-       
+      }
+    
     }
      
 
