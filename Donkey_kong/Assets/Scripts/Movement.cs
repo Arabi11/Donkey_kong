@@ -147,16 +147,21 @@ public class Movement : MonoBehaviour
         
     }
 
-private void OnTriggerEnter2D(Collider2D collider){
+private void OnTriggerExit2D(Collider2D collider){
      if(collider.gameObject.CompareTag("Obstacle")){
-        if(collider.GetType() == typeof(CapsuleCollider2D)){
-
+        if(direction.y > collider.transform.position.y){
+            if(direction.x > collider.transform.position.x){
+                ScoreManager.instance.AddPoint(50);
+            }
+            else{
+                ScoreManager.instance.AddPoint(150);
+            }
           
-            ScoreManager.instance.AddPoint(50);
+            
             
             
         }
-        else {
+        else if(direction.x > collider.transform.position.x) {
            ScoreManager.instance.AddPoint(10);
             
         }
