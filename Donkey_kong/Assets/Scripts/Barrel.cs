@@ -15,6 +15,7 @@ public class Barrel : MonoBehaviour
 
    private void Awake(){
        rigidbody =GetComponent<Rigidbody2D>();
+       
       
    }
 
