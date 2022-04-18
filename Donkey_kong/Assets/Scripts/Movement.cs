@@ -27,6 +27,9 @@ public class Movement : MonoBehaviour
 
     private bool grounded;
 
+    private bool giant = false;
+   
+
   
   
 
@@ -142,11 +145,20 @@ public class Movement : MonoBehaviour
 
       private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
+        if (collision.gameObject.CompareTag("Obstacle") && !giant)
         {
             FindObjectOfType<GameManager>().LevelFailed();
             
         }
+        
+        else if(collision.gameObject.CompareTag("Obstacle") && giant){
+            Destroy(collision.gameObject);
+            ScoreManager.instance.AddPoint(500);
+        }
+
+        
+            
+            
         
     }
 
@@ -181,5 +193,10 @@ private void OnTriggerExit2D(Collider2D collider){
     public void setMoveSpeed(float x){
         moveSpeed = x;
     }
+   
+   public void setGiant(bool x){
+       giant = x;
+   }
+
    
 }

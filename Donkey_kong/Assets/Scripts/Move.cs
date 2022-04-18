@@ -19,8 +19,13 @@ public class Move : MonoBehaviour
             StartCoroutine("GetInvulnerable");
             Destroy(col.gameObject);
         }
-        if(col.gameObject.CompareTag("HGH")){
+        if(col.gameObject.CompareTag("Steroids")){
             StartCoroutine("SpeedMan");
+            Destroy(col.gameObject);
+        }
+
+        if(col.gameObject.CompareTag("HGH")){
+            StartCoroutine("GiantMan");
             Destroy(col.gameObject);
         }
     }
@@ -28,16 +33,18 @@ public class Move : MonoBehaviour
   
    
    IEnumerator GetInvulnerable(){
-       Physics2D.IgnoreLayerCollision(7,8,true);
+       //Physics2D.IgnoreLayerCollision(7,8,true);
        c.a = 0.5f;
        rend.material.color = c;
+       Physics2D.IgnoreLayerCollision(7,8,true);
        yield return new WaitForSeconds(5f);
-       
-       
-       Physics2D.IgnoreLayerCollision(7,8,false);
-      // FindObjectOfType.
        c.a =1f;
        rend.material.color =c;
+       Physics2D.IgnoreLayerCollision(7,8,false);
+       
+       
+      // FindObjectOfType.
+       
 
    }
 
@@ -48,11 +55,29 @@ public class Move : MonoBehaviour
        rend.material.color = c;
        float x = gameObject.GetComponent<Movement>().getMoveSpeed();
         gameObject.GetComponent<Movement>().setMoveSpeed(17f);
+        gameObject.GetComponent<Movement>().gameObject.transform.localScale = new Vector3 (5,5, 5);
      yield return new WaitForSeconds(10f);
      c.g = y;
      rend.material.color = c;
      gameObject.GetComponent<Movement>().setMoveSpeed(x);
-     
+    
+
+   }
+
+   IEnumerator GiantMan(){
+
+       float y = c.b ;
+       c.b =5f;
+       rend.material.color = c;
+       
+        gameObject.GetComponent<Movement>().setGiant(true);
+        gameObject.GetComponent<Movement>().gameObject.transform.localScale = new Vector3 (5,5, 5);
+        yield return new WaitForSeconds(10f);
+        c.b = y;
+        rend.material.color = c;
+        
+         gameObject.GetComponent<Movement>().gameObject.transform.localScale = new Vector3 (1,1, 1);
+        gameObject.GetComponent<Movement>().setGiant(false);
 
    }
 }
