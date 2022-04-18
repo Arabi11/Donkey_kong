@@ -46,7 +46,10 @@ public class Movement : MonoBehaviour
     private void OnEnable()
     {
         InvokeRepeating(nameof(AnimateSprite), 1f/12f, 1f/12f);
+      
     }
+
+    
 
     private void OnDisable()
     {
@@ -99,9 +102,9 @@ public class Movement : MonoBehaviour
         } else {
             direction += Physics2D.gravity * Time.deltaTime*3;
         }
-
+       
         direction.x = Input.GetAxis("Horizontal") * moveSpeed;
-
+        
         // Prevent gravity from building up infinitely
         if (grounded) {
             direction.y = Mathf.Max(direction.y, -1f);
@@ -147,6 +150,8 @@ public class Movement : MonoBehaviour
         
     }
 
+    
+
 private void OnTriggerExit2D(Collider2D collider){
      if(collider.gameObject.CompareTag("Obstacle")){
         if(collider.GetType() == typeof(CapsuleCollider2D)){
@@ -169,5 +174,12 @@ private void OnTriggerExit2D(Collider2D collider){
      }
 }
 
+    public float getMoveSpeed(){
+        return moveSpeed;
+    }
+
+    public void setMoveSpeed(float x){
+        moveSpeed = x;
+    }
    
 }
