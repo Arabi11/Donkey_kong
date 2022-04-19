@@ -171,6 +171,7 @@ private void OnTriggerExit2D(Collider2D collider){
                 ScoreManager.instance.AddPoint(50);
             }
             else{
+                unlockAchievement("JumpMan");
                 ScoreManager.instance.AddPoint(150);
             }
           
@@ -197,6 +198,15 @@ private void OnTriggerExit2D(Collider2D collider){
    public void setGiant(bool x){
        giant = x;
    }
+   public void unlockAchievement(string ID){
+        
+        AchievementService achServ = FindObjectOfType<AchievementService>();
+
+        if(achServ){
+            achServ.GetComponent<AchievementService>().unlockAchievement(ID);
+        }
+    }
+}
 
    
-}
+
