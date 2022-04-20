@@ -117,6 +117,7 @@ public class Player : MonoBehaviour
         switch (myState)
         {
             case PlayerState.IDLE:
+                direction += Physics2D.gravity * Time.deltaTime * 3;
                 if (grounded && Input.GetButtonDown("Jump"))
                 {
                     direction = Vector2.up * jumpStrength;
@@ -137,13 +138,11 @@ public class Player : MonoBehaviour
 
                 if (Input.GetButtonDown("Horizontal"))
                 {
+                    Debug.Log("00000000");
+
                     direction.x = Input.GetAxis("Horizontal") * moveSpeed;
-                    direction += Physics2D.gravity * Time.deltaTime * 3;
-                    if (grounded)
-                    {
-                        direction.y = Mathf.Max(direction.y, -1f);
-                        myState = PlayerState.IDLE;
-                    }
+                    myState = PlayerState.IDLE;
+                    
                 }
 
                 if (Input.GetButtonDown("Jump"))
@@ -154,14 +153,19 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-
-                    myState = PlayerState.JUMPING;
+                    direction.x = Input.GetAxis("Horizontal") * moveSpeed;
+                    direction += Physics2D.gravity * Time.deltaTime * 3;
+                if (grounded)
+                {
+                    direction.y = Mathf.Max(direction.y, -1f);
+                    myState = PlayerState.IDLE;
                 }
 
-
+                }
 
                 break;
             case PlayerState.JUMPING:
+                Debug.Log("sf");
                 direction.x = Input.GetAxis("Horizontal") * moveSpeed;
                 direction += Physics2D.gravity * Time.deltaTime * 3;
                 if (grounded)

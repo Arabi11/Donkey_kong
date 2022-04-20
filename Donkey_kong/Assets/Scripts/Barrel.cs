@@ -22,7 +22,7 @@ public class Barrel : MonoBehaviour
    private void OnCollisionEnter2D(Collision2D collision){
       
       if(!collided){
-         rigidbody.AddForce(collision.transform.right*Random.Range(0.175f, 6f), ForceMode2D.Impulse );
+         rigidbody.AddForce(collision.transform.right*Random.Range(0.5f, 6f), ForceMode2D.Impulse );
          collided = true;
       }
       
