@@ -15,14 +15,14 @@ public class Barrel : MonoBehaviour
 
    private void Awake(){
        rigidbody =GetComponent<Rigidbody2D>();
-        
+        //rigidbody.AddForce(transform.right*-1*Random.Range(0.5f, 2f), ForceMode2D.Impulse );
       
    }
 
    private void OnCollisionEnter2D(Collision2D collision){
       
       if(!collided){
-         rigidbody.AddForce(collision.transform.right*Random.Range(0.5f, 6f), ForceMode2D.Impulse );
+         rigidbody.AddForce(collision.transform.right*Random.Range(0.5f, 2f), ForceMode2D.Impulse );
          collided = true;
       }
       

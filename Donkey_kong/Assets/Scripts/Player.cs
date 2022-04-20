@@ -7,10 +7,10 @@ public class Player : MonoBehaviour
     public static Player instance;
 
     [SerializeField] private Sprite[] runSprites;
-     public float moveSpeed = 6f;
+     [SerializeField] public float moveSpeed = 5f;
 
 
-    private PlayerState myState = PlayerState.IDLE;
+    
 
 
 
@@ -43,12 +43,7 @@ public class Player : MonoBehaviour
 
       public IPlayerState currentState;
 
-    void UpdateState(){
-        
-        
-        
-        
-    }
+    
 
 
 
@@ -87,6 +82,8 @@ public class Player : MonoBehaviour
        currentState =currentState.Tick(this);
     }
 
+
+
     private void CheckCollision()
     {
         grounded = false;
@@ -117,119 +114,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    enum PlayerState
-    {
-        IDLE,
-        RUNNING,
-        JUMPING
-    }
-
-
-
-
-
-
-    private void Tick()
-    {
-
-        switch (myState)
-        {
-            case PlayerState.IDLE:
-                direction += Physics2D.gravity * Time.deltaTime * 3;
-                if (grounded && Input.GetButtonDown("Jump"))
-                {
-                    direction = Vector2.up * jumpStrength;
-                    myState = PlayerState.JUMPING;
-
-                }
-                else
-                {
-                    myState = PlayerState.RUNNING;
-                }
-                break;
-
-
-
-
-
-            case PlayerState.RUNNING:
-
-                if (Input.GetButtonDown("Horizontal"))
-                {
-                    Debug.Log("00000000");
-
-                    direction.x = Input.GetAxis("Horizontal") * moveSpeed;
-                    myState = PlayerState.IDLE;
-                    
-                }
-
-                if (Input.GetButtonDown("Jump")&&grounded)
-                {
-                    direction = Vector2.up * jumpStrength;
-                    myState = PlayerState.JUMPING;
-
-                }
-                else
-                {
-                    direction.x = Input.GetAxis("Horizontal") * moveSpeed;
-                    direction += Physics2D.gravity * Time.deltaTime * 3;
-                if (grounded)
-                {
-                    direction.y = Mathf.Max(direction.y, -1f);
-                    myState = PlayerState.IDLE;
-                }
-
-                }
-
-                break;
-            case PlayerState.JUMPING:
-                Debug.Log("sf");
-                direction.x = Input.GetAxis("Horizontal") * moveSpeed;
-                direction += Physics2D.gravity * Time.deltaTime * 3;
-                if (grounded)
-                {
-                    direction.y = Mathf.Max(direction.y, -1f);
-                    myState = PlayerState.IDLE;
-                }
-
-                break;
-
-
-
-
-        }
-    }
-
-    private void SetDirection()
-    {
-
-        if (grounded && Input.GetButtonDown("Jump"))
-        {
-            direction = Vector2.up * jumpStrength;
-        }
-        else
-        {
-            direction += Physics2D.gravity * Time.deltaTime * 3;
-        }
-
-        direction.x = Input.GetAxis("Horizontal") * moveSpeed;
-
-        // Prevent gravity from building up infinitely
-        if (grounded)
-        {
-            direction.y = Mathf.Max(direction.y, -1f);
-        }
-
-        if (direction.x > 0f)
-        {
-            transform.eulerAngles = Vector3.zero;
-        }
-        else if (direction.x < 0f)
-        {
-            transform.eulerAngles = new Vector3(0f, 180f, 0f);
-        }
-    }
-
+    
     private void FixedUpdate()
     {
         rigidbody.MovePosition(rigidbody.position + direction * Time.fixedDeltaTime);
