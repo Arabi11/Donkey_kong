@@ -32,6 +32,19 @@ public class Player : MonoBehaviour
 
     private bool giant = false;
 
+    private IPlayerState currentState = new PlayerIdle();
+
+
+    void UpdateState(){
+        
+        IPlayerState newState = currentState.Tick(this);
+
+        if(newState != null){
+           // currentState.Exit(this);
+            currentState =newState;
+            newState.Enter(this);
+        }
+    }
 
 
 
@@ -66,7 +79,7 @@ public class Player : MonoBehaviour
     {
         CheckCollision();
 
-        Tick();
+        UpdateState();
     }
 
     private void CheckCollision()
@@ -311,6 +324,39 @@ public class Player : MonoBehaviour
             achServ.GetComponent<AchievementService>().unlockAchievement(ID);
         }
     }
+
+    public Vector2 getDirection(){
+        return direction;
+    }
+
+   
+
+     public bool getGrounded(){
+        return grounded;
+    }
+
+    public void  setDirection(Vector2 x){
+        direction = x;
+    }
+    public void  setDirectionx(float input){
+        direction.x = input;
+    }
+    public void  addToDirection(Vector2 x){
+        direction += x;
+    }
+
+    public float getJump(){
+        return jumpStrength;
+    }
+
+     public void  setDirectiony(float input){
+        direction.y = input;
+    }
+
+    public float  getDirectiony(){
+        return direction.y;
+    }
+
 }
 
 
