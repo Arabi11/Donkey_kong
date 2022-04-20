@@ -53,13 +53,13 @@ public class PowerUps : MonoBehaviour
        float y = c.g ;
        c.g =5f;
        rend.material.color = c;
-       float x = gameObject.GetComponent<Movement>().getMoveSpeed();
-        gameObject.GetComponent<Movement>().setMoveSpeed(17f);
-        gameObject.GetComponent<Movement>().gameObject.transform.localScale = new Vector3 (5,5, 5);
+       float x = gameObject.GetComponent<Player>().getMoveSpeed();
+        gameObject.GetComponent<Player>().setMoveSpeed(17f);
+        gameObject.GetComponent<Player>().gameObject.transform.localScale = new Vector3 (5,5, 5);
      yield return new WaitForSeconds(10f);
      c.g = y;
      rend.material.color = c;
-     gameObject.GetComponent<Movement>().setMoveSpeed(x);
+     gameObject.GetComponent<Player>().setMoveSpeed(x);
     
 
    }
@@ -70,14 +70,14 @@ public class PowerUps : MonoBehaviour
        c.b =5f;
        rend.material.color = c;
        
-        gameObject.GetComponent<Movement>().setGiant(true);
-        gameObject.GetComponent<Movement>().gameObject.transform.localScale = new Vector3 (5,5, 5);
+        gameObject.GetComponent<Player>().setGiant(true);
+        gameObject.GetComponent<Player>().gameObject.transform.localScale = new Vector3 (5,5, 5);
         yield return new WaitForSeconds(10f);
         c.b = y;
         rend.material.color = c;
         
-         gameObject.GetComponent<Movement>().gameObject.transform.localScale = new Vector3 (1,1, 1);
-        gameObject.GetComponent<Movement>().setGiant(false);
+         gameObject.GetComponent<Player>().gameObject.transform.localScale = new Vector3 (1,1, 1);
+        gameObject.GetComponent<Player>().setGiant(false);
 
    }
 }
