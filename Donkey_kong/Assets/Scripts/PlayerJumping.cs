@@ -8,23 +8,9 @@ public class PlayerJumping : IPlayerState
        
    }
 
-   public IPlayerState Tick(Player player){
-
-       Debug.Log("sf");
-                player.setDirectionx(Input.GetAxis("Horizontal") * player.getMoveSpeed());
-                player.addToDirection(Physics2D.gravity * Time.deltaTime * 3);
-                
-                if (player.getGrounded())
-                {
-                    player.setDirectiony(Mathf.Max(player.getDirectiony(),1f));
-                    //IDLE;
-                    return new PlayerIdle();
-                }
-
+   public IPlayerState Tick(Player player){       
+               
             return null;
    }
-/**
-   public void Exit(Player player){
-         Destroy(this);
-   }**/
+
 }
