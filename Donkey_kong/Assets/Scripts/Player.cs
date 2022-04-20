@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
     {
         CheckCollision();
 
-        UpdateState();
+        Tick();
     }
 
     private void CheckCollision()
@@ -154,7 +154,7 @@ public class Player : MonoBehaviour
                     
                 }
 
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetButtonDown("Jump")&&grounded)
                 {
                     direction = Vector2.up * jumpStrength;
                     myState = PlayerState.JUMPING;
