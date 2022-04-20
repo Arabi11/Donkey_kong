@@ -8,7 +8,18 @@ public class PlayerIdle :  IPlayerState
 
     public IPlayerState Tick(Player player){
         
-        return null;
+            player.direction += Physics2D.gravity * Time.deltaTime * 3;
+                if (player.grounded && Input.GetButtonDown("Jump"))
+                {
+                    
+                    return player.playerJumping;
+
+                }
+                else
+                {
+                    return player.playerRunning;
+
+                }
    }
         
        

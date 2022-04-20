@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public static Player instance;
 
     [SerializeField] private Sprite[] runSprites;
-    [SerializeField] private float moveSpeed = 6f;
+     public float moveSpeed = 6f;
 
 
     private PlayerState myState = PlayerState.IDLE;
@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
 
 
-    [SerializeField] private float jumpStrength = 4f;
+    [SerializeField] public float jumpStrength = 4f;
 
     private SpriteRenderer spriteRenderer;
 
@@ -26,14 +26,22 @@ public class Player : MonoBehaviour
     private new Collider2D collider;
 
     private Collider2D[] overlaps = new Collider2D[4];
-    private Vector2 direction;
+    public Vector2 direction;
 
-    private bool grounded;
+    public bool grounded;
 
     private bool giant = false;
 
-    private IPlayerState currentState = new PlayerIdle();
+    
+    
 
+    public PlayerIdle playerIdle = new PlayerIdle();
+
+     public PlayerRunning playerRunning = new PlayerRunning();
+
+      public PlayerJumping playerJumping = new PlayerJumping();
+
+      public IPlayerState currentState;
 
     void UpdateState(){
         
@@ -61,6 +69,7 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         InvokeRepeating(nameof(AnimateSprite), 1f / 12f, 1f / 12f);
+        currentState = playerIdle;
 
     }
 
@@ -75,7 +84,7 @@ public class Player : MonoBehaviour
     {
         CheckCollision();
 
-        Tick();
+       currentState =currentState.Tick(this);
     }
 
     private void CheckCollision()
