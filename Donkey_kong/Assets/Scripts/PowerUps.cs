@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PowerUps : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class PowerUps : MonoBehaviour
        float y = c.g ;
        c.g =5f;
        rend.material.color = c;
-       float x = gameObject.GetComponent<Player>().getMoveSpeed();
+       float x = gameObject.GetComponent<Player>().moveSpeed;
         gameObject.GetComponent<Player>().setMoveSpeed(17f);
         gameObject.GetComponent<Player>().gameObject.transform.localScale = new Vector3 (5,5, 5);
      yield return new WaitForSeconds(10f);

@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
       public IPlayerState currentState;
 
     
-
+    
 
 
 
@@ -65,6 +65,8 @@ public class Player : MonoBehaviour
     {
         InvokeRepeating(nameof(AnimateSprite), 1f / 12f, 1f / 12f);
         currentState = playerIdle;
+
+
 
     }
 
