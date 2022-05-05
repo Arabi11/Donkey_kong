@@ -8,7 +8,8 @@ public class PlayerJumping : IPlayerState
        
    }
 
-   public IPlayerState Tick(Player player){       
+   public IPlayerState Tick(Player player){   
+       if(!PauseMenu.isPaused){
                 player.direction = Vector2.up * player.jumpStrength;
                 player.direction.x = Input.GetAxis("Horizontal") * player.moveSpeed;
                 player.direction += Physics2D.gravity * Time.deltaTime * 3;
@@ -21,6 +22,8 @@ public class PlayerJumping : IPlayerState
                 else{
                     return player.playerIdle;
                 }
+     }
+    return player.playerIdle;
    }
-
+   
 }

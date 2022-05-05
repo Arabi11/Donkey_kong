@@ -11,7 +11,7 @@ public class PlayerRunning : IPlayerState
    public IPlayerState Tick(Player player)
    {
        
-           if (Input.GetButtonDown("Horizontal"))
+           if ( !PauseMenu.isPaused && Input.GetButtonDown("Horizontal"))
                 {
                     Debug.Log("00000000");
 
