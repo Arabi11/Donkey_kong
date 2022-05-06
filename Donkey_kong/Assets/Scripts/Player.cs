@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 
 public class Player : MonoBehaviour
@@ -176,6 +177,7 @@ public class Player : MonoBehaviour
                 else
                 {
                     unlockAchievement("JumpMan");
+                   
                     ScoreManager.instance.AddPoint(150);
                 }
 
@@ -191,6 +193,16 @@ public class Player : MonoBehaviour
 
         }
     }
+     IEnumerator jumpbackAch(){
+
+       unlockAchievement("JumpMan");
+         yield return new WaitForSeconds(10f);
+     
+    
+
+   }
+
+    
 
     public float getMoveSpeed()
     {

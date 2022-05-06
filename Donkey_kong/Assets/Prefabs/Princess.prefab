@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2644655151317810729}
   m_Layer: 0
   m_Name: Princess
-  m_TagString: Untagged
+  m_TagString: Steroids
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

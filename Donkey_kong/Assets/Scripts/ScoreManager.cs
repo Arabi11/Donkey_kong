@@ -11,13 +11,18 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] private  Text highscoreText;
 
+   [SerializeField] private  Text achievementText;
+
     int score =0;
     int highscore = 0;
+
+    float missingTime = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {   
+         
         PlayerPrefs.DeleteKey("score");
        
         highscore =PlayerPrefs.GetInt("highscore", 0);
@@ -27,8 +32,25 @@ public class ScoreManager : MonoBehaviour
 
         highscoreText.text = "HIGHSCORE:"+highscore.ToString();
     }
+    public void Update(){
+         if(missingTime > 0){
+            missingTime -= Time.deltaTime;
+        }
+        else{
+            achievementText.text = "";
+        }
+    }
+    
 
+    
+    public void setAchievementText(string input){
+        achievementText.text = "Achivement: "+input;
+        missingTime = 10;
+        
+    }
    
+   
+    
     
 
     
@@ -43,11 +65,8 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
+   
 
     void Awake(){
         instance = this;

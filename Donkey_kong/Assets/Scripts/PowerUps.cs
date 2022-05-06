@@ -13,6 +13,7 @@ public class PowerUps : MonoBehaviour
         rend = GetComponent<Renderer>();
         c = rend.material.color;
     }
+    
 
     void OnTriggerEnter2D (Collider2D col){
         if(col.gameObject.CompareTag("Shrooms")){
@@ -56,8 +57,7 @@ public class PowerUps : MonoBehaviour
        rend.material.color = c;
        float x = gameObject.GetComponent<Player>().moveSpeed;
         gameObject.GetComponent<Player>().setMoveSpeed(17f);
-        gameObject.GetComponent<Player>().gameObject.transform.localScale = new Vector3 (5,5, 5);
-     yield return new WaitForSeconds(10f);
+         yield return new WaitForSeconds(10f);
      c.g = y;
      rend.material.color = c;
      gameObject.GetComponent<Player>().setMoveSpeed(x);
